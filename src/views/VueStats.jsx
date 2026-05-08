@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { generateClient } from 'aws-amplify/data';
 
-const client = generateClient();
 
 export default function VueStats() {
+    const client = generateClient();
+    
     const [statsParMuscle, setStatsParMuscle] = useState({});
     const [groupesJournal, setGroupesJournal] = useState([]);
     const [chargement, setChargement] = useState(true);

@@ -1,14 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
 
-// 1. D'ABORD AMPLIFY (Très important que ce soit avant App)
+// --- AJOUTE CES 3 LIGNES POUR CONNECTER LE BACKEND ---
 import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json'; 
+import outputs from '../amplify_outputs.json'; // Vérifie que le chemin est correct selon l'emplacement de ton fichier
 Amplify.configure(outputs);
-
-// 2. ENSUITE VOTRE APP
-import App from './App.jsx'
-import './index.css' 
+// ----------------------------------------------------
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

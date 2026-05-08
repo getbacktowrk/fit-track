@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Authenticator } from '@aws-amplify/ui-react';
+import { Authenticator, View, Heading, Text, useTheme } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css'; 
 
 import VueSeance from "./views/VueSeance";
@@ -10,6 +10,33 @@ import VueSeanceExecutionLive from "./views/VueSeanceExecutionLive";
 
 const styleBoutonNav = { padding: "10px 15px", cursor: "pointer", fontWeight: "bold", border: "none", borderRadius: "8px", backgroundColor: "transparent", color: "#d1d5db" };
 const styleBoutonNavActif = { ...styleBoutonNav, backgroundColor: "#3b82f6", color: "white" };
+
+// --- 1. AJOUT DES COMPOSANTS PERSONNALISÉS POUR LA PAGE DE CONNEXION ---
+const formComponents = {
+  Header() {
+    return (
+      <View textAlign="center" padding="2rem">
+        {/* On utilise directement le code couleur HTML #ff5722 */}
+        <Heading level={2} color="#0f1118" fontWeight="bold">
+          Fit-Track 💪
+        </Heading>
+        <Text fontSize="1.1rem" marginTop="0.5rem" color="#555">
+          Dépasse tes limites. <br/> Enregistre chaque séance.
+        </Text>
+      </View>
+    );
+  },
+  Footer() {
+    return (
+      <View textAlign="center" padding="1.5rem">
+        <Text color="#888" fontSize="0.9rem">
+          &copy; 2026 Fit-Track - Ce n'est que le début !
+        </Text>
+      </View>
+    );
+  }
+};
+// -----------------------------------------------------------------------
 
 export default function App() {
   const [vueActive, setVueActive] = useState("accueil");
@@ -27,7 +54,8 @@ export default function App() {
   };
 
   return (
-    <Authenticator>
+    // --- 2. ON INJECTE LE DESIGN ICI (components={formComponents}) ---
+    <Authenticator components={formComponents}>
       {({ signOut, user }) => (
         <>
           {/* L'AFFICHAGE 75/25 S'AFFICHE ICI S'IL Y A UNE SÉANCE */}
@@ -50,6 +78,8 @@ export default function App() {
                 <button onClick={() => setVueActive("seance")} style={vueActive === "seance" ? styleBoutonNavActif : styleBoutonNav}>+ Créer</button>
                 <button onClick={() => setVueActive("programmes")} style={vueActive === "programmes" ? styleBoutonNavActif : styleBoutonNav}>Programmes</button>
                 <button onClick={() => setVueActive("stats")} style={vueActive === "stats" ? styleBoutonNavActif : styleBoutonNav}>Stats</button>
+                
+                {/* TON BOUTON DÉCONNEXION FONCTIONNE TOUJOURS */}
                 <button onClick={signOut} style={{ ...styleBoutonNav, backgroundColor: "#ef4444", color: "white" }}>Déconnexion</button>
               </div>
             </nav>

@@ -1,0 +1,32 @@
+/* --- src/index.css --- */
+
+/* 1. On modifie les couleurs par défaut d'Amplify pour coller au thème Fitness */
+:root {
+  /* Couleur principale : Un beau orange dynamique */
+  --amplify-colors-brand-primary-10: #fff0e6;
+  --amplify-colors-brand-primary-80: #ff5722; /* Couleur du bouton normal */
+  --amplify-colors-brand-primary-90: #e64a19; /* Bouton au survol */
+  --amplify-colors-brand-primary-100: #bf360c;
+
+  /* On arrondit les angles pour un effet plus moderne */
+  --amplify-components-button-border-radius: 24px;
+  --amplify-components-fieldcontrol-border-radius: 8px;
+
+  /* On ajoute une belle ombre autour de la boîte de connexion */
+  --amplify-components-authenticator-router-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --amplify-components-authenticator-router-border-radius: 16px;
+}
+
+/* 2. On stylise le fond de la page entière */
+body {
+  margin: 0;
+  /* Un fond gris très clair pour faire ressortir le formulaire blanc */
+  background-color: #f4f6f9; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Pour centrer le formulaire parfaitement au milieu de l'écran */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
