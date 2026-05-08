@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description du Projet Fit-Track</title>
+    <style>
+        body {
+            background-color: #e0e5ec;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+            color: #000;
+            margin: 0;
+        }
+
+        /* Style de la page type A4 */
+        .a4-page {
+            background-color: white;
+            width: 100%;
+            max-width: 794px;
+            min-height: 1123px;
+            padding: 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        h1 { 
+            text-align: center; 
+            color: #2c3e50; 
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 15px;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        
+        h2 { 
+            color: #2980b9; 
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol { 
+            margin-top: 10px; 
+            margin-bottom: 20px; 
+            padding-left: 25px;
+        }
+
+        li { 
+            margin-bottom: 8px; 
+            text-align: justify;
+        }
+
+        strong { 
+            color: #222; 
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            color: #333;
+        }
+
+        @media (max-width: 850px) {
+            .a4-page { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page" id="document-content">
+        <h1>Description du Projet : Fit-Track</h1>
+
+        <h2>1. Nom et Concept du Projet</h2>
+        <p><strong>Nom :</strong> Fit-Track</p>
+        <p><strong>Concept :</strong> Une application web interactive (Single Page Application) destinée aux sportifs. Elle permet de consulter un vaste catalogue d'exercices de musculation animés et d'utiliser ces données pour composer, modifier et sauvegarder des séances d'entraînement 100% personnalisées.</p>
+
+        <h2>2. Objectifs Techniques (Critères d'évaluation)</h2>
+        <p>Ce projet vise à valider les compétences acquises dans le module React :</p>
+        <ul>
+            <li><strong>Composants :</strong> Interface découpée en composants réutilisables (cartes d'exercices, listes, formulaires).</li>
+            <li><strong>Routeur :</strong> Navigation fluide et sans rechargement entre les différentes vues de l'application.</li>
+            <li><strong>Requêtes asynchrones :</strong> Récupération de données depuis une API externe.</li>
+            <li><strong>Modification de données :</strong> L'utilisateur peut créer, lire, mettre à jour et supprimer (CRUD) ses propres séances.</li>
+        </ul>
+
+        <h2>3. Vues et Fonctionnalités (Routeur)</h2>
+        <p>L'application sera divisée en 3 vues principales :</p>
+        <ol>
+            <li><strong>Vue Catalogue (Accueil) :</strong> Affiche la liste des exercices provenant de l'API publique (avec images/GIFs). Permet de filtrer par groupe musculaire.</li>
+            <li><strong>Vue "Création de Séance" :</strong> Un espace où l'utilisateur sélectionne des exercices du catalogue pour construire sa routine, en y ajoutant ses propres paramètres (nombre de séries et de répétitions).</li>
+            <li><strong>Vue "Mes Programmes" :</strong> Affiche les séances sauvegardées. L'utilisateur peut consulter, modifier ou supprimer une séance existante.</li>
+        </ol>
+
+        <h2>4. Architecture Choisie</h2>
+        <p>Le projet reposera sur une architecture hybride optimisée pour les besoins du module :</p>
+        <ul>
+            <li><strong>Lecture de données (API Externe) :</strong> L'application interroge l'API publique gratuite <em>ExerciseDB</em> (<code>https://exercisedb.dev/</code>) pour récupérer le catalogue d'exercices de manière asynchrone.</li>
+            <li><strong>Écriture de données (Architecture Standalone / Client) :</strong> Pour gérer la création et la modification des programmes personnalisés sans nécessiter de backend complexe, les données générées par l'utilisateur seront sauvegardées au format JSON via le <strong>LocalStorage</strong> du navigateur.</li>
+        </ul>
+
+        <h2>5. Description des Données (Format JSON)</h2>
+        <p>Outre les données brutes lues depuis l'API, l'application générera et modifiera des données structurées de cette manière pour chaque séance :</p>
+<pre><code>{
+  "id_seance": "uuid-1234",
+  "nom_seance": "Haut du corps - Force",
+  "date_creation": "2026-03-26",
+  "exercices_choisis": [
+    {
+      "id_api": "345", 
+      "nom_exercice": "Bench Press",
+      "series": 4,
+      "repetitions": 10
+    },
+    {
+      "id_api": "128", 
+      "nom_exercice": "Pull-ups",
+      "series": 3,
+      "repetitions": 8
+    }
+  ]
+}</code></pre>
+    </div>
+</body>
+</html>

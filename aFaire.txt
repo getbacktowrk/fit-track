@@ -1,0 +1,18 @@
+Programme:
+effectué ou pas
+feedback exercice
+prochaine séance => facile/dur
+rajouter une évaluation rapide (en emoji, vert, orange, rouge) ou autre système.
+
+quels exercices sont fait ou pas?
+
+stats => réussi ou pas
+
+Rajouter l'authentification, page login etc ...
+
+page stats => résultats + compteur
+
+LOCAL ou Authentification?
+STOCKAGE AWS?
+
+Le faire hoster sur AWS.

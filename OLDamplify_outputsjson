@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "auth": {
+    "aws_region": "eu-central-1",
+    "user_pool_id": "eu-central-1_cyTaHks4N",
+    "user_pool_client_id": "rd0d0oknm5dj88tomfg17mrgi",
+    "identity_pool_id": "eu-central-1:e4f902cf-f960-4939-94a4-8e9d0e168ba3",
+    "standard_required_attributes": ["email"],
+    "username_attributes": ["email"],
+    "user_verification_types": ["email"],
+    "unauthenticated_identities_enabled": true,
+    "password_policy": {
+      "min_length": 8,
+      "require_numbers": true,
+      "require_lowercase": true,
+      "require_uppercase": true,
+      "require_symbols": true
+    }
+  },
+  "data": {
+    "url": "https://qfmhxpfmu5b6jmgkxgevdw4gzu.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "aws_region": "eu-central-1",
+    "default_authorization_type": "AWS_IAM",
+    "authorization_types": ["AMAZON_COGNITO_USER_POOLS"]
+  }
+}
